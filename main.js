@@ -1,4 +1,4 @@
-let getUsers = async () => {
+const getUsers = async () => {
   let url = "https://jsonplaceholder.typicode.com/users";
   try {
     let result = await fetch(url);
@@ -8,7 +8,7 @@ let getUsers = async () => {
   }
 }
 
-let getUsersPosts = async () => {
+const getUsersPosts = async () => {
   let url = "https://jsonplaceholder.typicode.com/posts";
   try {
     let result = await fetch(url);
@@ -18,7 +18,7 @@ let getUsersPosts = async () => {
   }
 }
 
-let getUserPostsById = async (id) => {
+const getUserPostsById = async (id) => {
   let posts = await getUsersPosts();
   let html = `<div style="margin-left:auto; margin-right:auto; width: 50%;" id="postByUser${id}" class="posts">`;
   posts.forEach((post) => {
@@ -33,7 +33,7 @@ let getUserPostsById = async (id) => {
   container.innerHTML = html;
 }
 
-let displayUsers = async () => {
+const displayUsers = async () => {
   let users = await getUsers();
   let html = "";
   users.forEach((user) => {
@@ -46,7 +46,7 @@ let displayUsers = async () => {
   container.innerHTML = html;
 }
 
-let togglePosts = async (id) => {
+const togglePosts = async (id) => {
   getUserPostsById(id);
   $("#user" + id).toggle();
 }
